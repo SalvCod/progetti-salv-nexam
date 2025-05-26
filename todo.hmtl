@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 40px;
+            text-align: center;
+        }
+
+        #todo-container {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 8px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 8px 12px;
+        }
+
+        ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="todo-container">
+        <h2>La mia To-Do List</h2>
+        <input type="text" id="todo-input" placeholder="Aggiungi un compito...">
+        <button onclick="aggiungiCompito()">Aggiungi</button>
+        <ul id="todo-list"></ul>
+    </div>
+
+    <script>
+        function aggiungiCompito() {
+            const input = document.getElementById("todo-input");
+            const testo = input.value.trim();
+            if (testo) {
+                const li = document.createElement("li");
+                li.textContent = testo;
+                document.getElementById("todo-list").appendChild(li);
+                input.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
