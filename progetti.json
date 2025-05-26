@@ -1,8 +1,8 @@
 {
     "progetti": [
         {
-            "nome": "To-Do List",
-            "link": "todo.html"
+            "nome": "Games List",
+            "link": "https://github.com/SalvCod/games-list"
         }
     ]
 }
