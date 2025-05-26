@@ -2,7 +2,7 @@
     "progetti": [
         {
             "nome": "To-Do List",
-            "codice": "<style>#todo-container { max-width: 400px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); } ul { padding-left: 20px; } input[type='text'] { width: 80%; padding: 8px; } button { padding: 8px; }</style><div id='todo-container'><h3>La mia To-Do List</h3><input type='text' id='todo-input' placeholder='Aggiungi un compito...'><button onclick='aggiungiCompito()'>Aggiungi</button><ul id='todo-list'></ul></div><script>function aggiungiCompito() { const input = document.getElementById('todo-input'); const testo = input.value.trim(); if (testo) { const li = document.createElement('li'); li.textContent = testo; document.getElementById('todo-list').appendChild(li); input.value = ''; } }</script>"
+            "link": "todo.html"
         }
     ]
 }
