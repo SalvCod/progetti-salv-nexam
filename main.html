@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salv Nexam - Progetti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f2f2f2;
+            color: #333;
+        }
+
+        header {
+            background: #1e1e1e;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header img {
+            max-height: 150px;
+            border-radius: 50%;
+            margin-top: 10px;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #1e1e1e;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        li h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Salv Nexam</h1>
+        <img src="https://i.redd.it/2271gn17uze21.png" alt="Foto di Salv Nexam">
+    </header>
+
+    <main>
+        <h2>I miei progetti</h2>
+        <ul id="project-list">
+            <!-- I progetti verranno caricati qui -->
+        </ul>
+    </main>
+
+    <script>
+        fetch('progetti.json')
+            .then(response => response.json())
+            .then(data => {
+                const list = document.getElementById('project-list');
+                data.progetti.forEach(progetto => {
+                    const li = document.createElement('li');
+                    const titolo = document.createElement('h3');
+                    titolo.textContent = progetto.nome;
+
+                    li.appendChild(titolo);
+
+                    if (progetto.codice) {
+                        const contenitoreCodice = document.createElement('div');
+                        contenitoreCodice.innerHTML = progetto.codice;
+                        li.appendChild(contenitoreCodice);
+                    }
+
+                    list.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Errore nel caricamento dei progetti:', error);
+            });
+    </script>
+
+</body>
+</html>
