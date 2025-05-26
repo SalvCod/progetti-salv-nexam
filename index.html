@@ -52,6 +52,17 @@
         li h3 {
             margin-top: 0;
         }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -77,13 +88,14 @@
                     const li = document.createElement('li');
                     const titolo = document.createElement('h3');
                     titolo.textContent = progetto.nome;
-
                     li.appendChild(titolo);
 
-                    if (progetto.codice) {
-                        const contenitoreCodice = document.createElement('div');
-                        contenitoreCodice.innerHTML = progetto.codice;
-                        li.appendChild(contenitoreCodice);
+                    if (progetto.link) {
+                        const link = document.createElement('a');
+                        link.href = progetto.link;
+                        link.textContent = "Apri progetto";
+                        link.target = "_blank";
+                        li.appendChild(link);
                     }
 
                     list.appendChild(li);
